@@ -1,5 +1,17 @@
-This mini project is created to solve daily problem of my girlfriend. 
-She has crossfit trainings which are only once a week and are very popular. This causes that often she was not able to sign up for these trainings.
-One script (logger.py) is logging into her account (logging data are stored in .env file) and storing logged session in cookies.
-Second script (app.py) is signing up for specific training sessions.
-To automate the whole process, project was placed on VPS and scripts scheduled using cron
+# 🏋️‍♀️ CrossFit Auto-Registration Bot
+
+This mini project was created to solve a daily problem for my girlfriend.  
+She attends CrossFit training sessions that are held only once a week and are extremely popular. As a result, she often couldn’t sign up in time.  
+
+This project automates the sign-up process to ensure she never misses a session again.  
+
+---
+
+## 🚀 How It Works
+
+The project consists of two scripts:
+
+- **`logger.py`** – Logs into the CrossFit account using credentials stored in a `.env` file and saves the session in cookies.  
+- **`app.py`** – Uses the saved session to sign up for specific training sessions.  
+
+The whole process runs automatically on a **VPS** using **cron jobs**.
