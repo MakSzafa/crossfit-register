@@ -13,7 +13,7 @@ COOKIES_FILE = "cookies.pkl"
 CLASSES_ROW = "7"
 BEFORE_WEEKDAY = 'Tuesday'  # The day before the target weekday
 WEEKDAY = "Wednesday" 
-REGISTRATION_TIME = "21:30:00"
+REGISTRATION_TIME = "19:30:00"
 
 # Set up Chrome options
 options = Options()
@@ -57,6 +57,7 @@ try:
     # Go to the target weekday
     arrow_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="classes"]/md-card-content/div/div/button[2]')))
     arrow_button.click()
+    time.sleep(1)
     print(f"📅 Moved to: {WEEKDAY}")
 
     # Sign up for the class
