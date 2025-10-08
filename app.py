@@ -11,7 +11,6 @@ import sys
 # PARAMETERS
 COOKIES_FILE = "cookies.pkl"
 CLASSES_ROW = "7"
-BEFORE_WEEKDAY = 'Tuesday'  # The day before the target weekday
 WEEKDAY = "Wednesday" 
 REGISTRATION_TIME = "19:30:00"
 
@@ -40,12 +39,8 @@ except Exception as e:
 wait = WebDriverWait(driver, 10)
 
 try:
-    # Go to the day before proper weekday
-    for i in range(6):
-        next_arrow = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="classes"]/md-card-content/div/div/button[2]')))
-        next_arrow.click()
-        time.sleep(0.3)
-    print(f"📅 Moved to: {BEFORE_WEEKDAY}")
+    # Print date for logger
+    print(datetime.now())
 
     # Wait for registration time
     print(f"⏳ Waiting for {REGISTRATION_TIME}...")
@@ -53,12 +48,13 @@ try:
         time.sleep(0.1)
 
     print("🚀 21:30! Refreshing schedule...")
-    
-    # Go to the target weekday
-    arrow_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="classes"]/md-card-content/div/div/button[2]')))
-    arrow_button.click()
-    time.sleep(1)
-    print(f"📅 Moved to: {WEEKDAY}")
+
+    # Go to the proper weekday
+    for i in range(7):
+        next_arrow = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="classes"]/md-card-content/div/div/button[2]')))
+        next_arrow.click()
+        time.sleep(0.3)
+    print(f"📅 Moved to: { WEEKDAY }")
 
     # Sign up for the class
     sign_up_button = wait.until(EC.element_to_be_clickable((By.XPATH, f'//*[@id="classes"]/md-card-content/table/tbody/tr[{CLASSES_ROW}]/td[5]/button')))

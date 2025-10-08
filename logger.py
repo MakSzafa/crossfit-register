@@ -1,4 +1,5 @@
 import pickle
+from datetime import datetime
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -23,6 +24,9 @@ options.add_argument("--window-size=1920,1080")
 driver = webdriver.Chrome(options=options)
 driver.get("https://crossfitgliwice.wod.guru/user/login")
 time.sleep(2)
+
+# Print date for logger
+print(datetime.now())
 
 # Login to the website
 driver.find_element(By.NAME, "identity").send_keys(EMAIL)
