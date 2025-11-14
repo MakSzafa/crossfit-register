@@ -12,7 +12,7 @@ import sys
 COOKIES_FILE = "cookies.pkl"
 CLASSES_ROW = "7"
 WEEKDAY = "Wednesday" 
-REGISTRATION_TIME = "19:30:00"
+REGISTRATION_TIME = "20:30:00"
 
 # Set up Chrome options
 options = Options()
